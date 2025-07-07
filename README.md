@@ -1,8 +1,8 @@
-# 🛍️ Online Retail Sales Database
+#  Online Retail Sales Database
 
 This project implements a normalized SQL schema for an e-commerce platform with essential features like product listings, customer orders, payments, and shipping.
 
-## 📚 Schema Overview
+##  Schema Overview
 
 - **Customers** – Personal details of users
 - **Categories** – Groups like Electronics, Clothing
@@ -11,24 +11,18 @@ This project implements a normalized SQL schema for an e-commerce platform with 
 - **Payments** – Transaction records
 - **Shipping** – Shipment tracking and status
 
-## 📌 ER Diagram
+##  ER Diagram
 
 See: `erd/online_retail_erd.dbdiagram.sql`
 
-## 🧱 SQL Scripts
+##  SQL Scripts
 
 - `schema/01_create_tables.sql` – Full schema
-- `schema/02_insert_sample_data.sql` – Sample entries
+- `schema/02_insert_sample_data.sql` –  entries
 - `schema/03_create_views.sql` – Sales & analytics views
 
-## 📊 Reports
 
-- Order Summary  
-- Payment Status  
-- Shipping Status  
-- Product Sales Analytics
-
-## 💻 Tools Used
+##  Tools Used
 
 - MySQL Workbench  
 - dbdiagram.io  
