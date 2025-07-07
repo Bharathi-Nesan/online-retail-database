@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -- Customers
 CREATE TABLE Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -66,4 +67,42 @@ CREATE TABLE Shipping (
     tracking_number VARCHAR(100),
     status VARCHAR(50),
     FOREIGN KEY (order_id) REFERENCES Orders(order_id)
+=======
+-- Students Table
+CREATE TABLE Students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    reg_no VARCHAR(20) NOT NULL UNIQUE,
+    name VARCHAR(100) NOT NULL,
+    dept VARCHAR(50),
+    year INT
+);
+
+-- Courses Table
+CREATE TABLE Courses (
+    course_id INT AUTO_INCREMENT PRIMARY KEY,
+    course_code VARCHAR(10) NOT NULL UNIQUE,
+    course_name VARCHAR(100),
+    credits INT
+);
+
+-- Semesters Table
+CREATE TABLE Semesters (
+    semester_id INT AUTO_INCREMENT PRIMARY KEY,
+    semester_name VARCHAR(20),
+    start_date DATE,
+    end_date DATE
+);
+
+-- Grades Table
+CREATE TABLE Grades (
+    grade_id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT,
+    course_id INT,
+    semester_id INT,
+    grade_letter VARCHAR(2),
+    grade_point INT,
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id),
+    FOREIGN KEY (semester_id) REFERENCES Semesters(semester_id)
+>>>>>>> 3000d8b (First commit)
 );

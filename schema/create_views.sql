@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -- Order Summary View
 CREATE VIEW OrderSummary AS
 SELECT 
@@ -48,3 +49,38 @@ SELECT
 FROM OrderDetails od
 JOIN Products p ON od.product_id = p.product_id
 GROUP BY p.name;
+=======
+-- 📘 View: GPA per Semester
+CREATE VIEW SemesterGPA AS
+SELECT 
+    s.student_id,
+    s.name AS student_name,
+    sem.semester_name,
+    ROUND(SUM(g.grade_point * c.credits) / SUM(c.credits), 2) AS gpa
+FROM Grades g
+JOIN Students s ON g.student_id = s.student_id
+JOIN Courses c ON g.course_id = c.course_id
+JOIN Semesters sem ON g.semester_id = sem.semester_id
+GROUP BY s.student_id, sem.semester_name;
+
+-- 📘 View: CGPA across all semesters
+CREATE VIEW StudentCGPA AS
+SELECT 
+    s.student_id,
+    s.name AS student_name,
+    ROUND(SUM(g.grade_point * c.credits) / SUM(c.credits), 2) AS cgpa
+FROM Grades g
+JOIN Students s ON g.student_id = s.student_id
+JOIN Courses c ON g.course_id = c.course_id
+GROUP BY s.student_id;
+
+-- 📘 View: Rank List by CGPA
+CREATE VIEW CGPARankList AS
+SELECT 
+    student_id,
+    student_name,
+    cgpa,
+    RANK() OVER (ORDER BY cgpa DESC) AS rank_position
+FROM StudentCGPA;
+
+>>>>>>> 3000d8b (First commit)
